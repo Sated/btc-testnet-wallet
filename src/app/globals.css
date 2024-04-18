@@ -2,32 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer layout {
+  .flex-row-flow {
+    @apply flex w-full gap-x-2.5;
+  }
+
+  .flex-col-flow {
+    @apply flex flex-col w-full gap-x-2.5;
+  }
+
+  .main {
+    @apply flex flex-col items-center justify-center rounded-xl p-6 w-full max-w-md gap-y-2.5 my-10;
+    background: #1c1c1e;
+  }
+
+  .page {
+    @apply flex flex-col items-center justify-center w-full gap-y-2.5;
+  }
+
+  .inner {
+    @apply flex flex-col rounded-xl p-4 w-full;
+    background: #282828;
+  }
+
+  .round {
+    @apply flex justify-center items-center rounded-full overflow-hidden;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .title {
+    @apply flex items-center justify-center gap-x-2.5 sm:text-3xl text-xl font-bold text-center;
+  }
+
+  .input {
+    @apply w-full rounded-xl bg-neutral-700 text-white px-3 py-2.5 outline-none;
+
+    ::placeholder {
+      color: #999;
+      opacity: 1;
+    }
+  }
+
+  .btn-primary {
+    @apply flex items-center justify-center gap-x-2.5 w-full sm:py-4 py-3 px-3 bg-white text-black rounded-xl transition-colors hover:bg-gray-100;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #fff;
+  background: #000;
+  font-weight: 500;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.loader {
+  @apply w-10 h-10 border-4 inline-block m-10 ml-auto mr-auto rounded-full;
+  border-bottom-color: transparent;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
