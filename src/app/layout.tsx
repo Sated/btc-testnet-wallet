@@ -35,7 +35,7 @@ export default function RootLayout({
           <div className="flex items-center justify-center min-h-screen px-4">
             <main className="main">
               <div className="flex justify-center">
-                <Image className="object-cover size-24 rounded-full overflow-hidden" src="/avatar.jpg" alt="" />
+                <Image className="object-cover size-24 rounded-full overflow-hidden" width={90} height={90} src="/avatar.jpg" alt="" />
               </div>
 
               {children}
