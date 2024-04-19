@@ -86,7 +86,7 @@ export default function CreateTransaction() {
         toAddress: targetAddress,
         amountSats: btcToSats(amount),
         feeSats: FEE_SATOSHI,
-        balance: balance!,
+        balance: btcToSats(balance!),
       })
     } catch (e) {
       toast.update(id, {

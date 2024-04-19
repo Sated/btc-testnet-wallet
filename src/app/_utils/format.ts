@@ -3,7 +3,7 @@ export function satsToBtc(satoshis: number) {
 }
 
 export function btcToSats(btc: number) {
-  return btc * 100000000
+  return Math.floor(btc * 100000000)
 }
 
 export function stripAddress(address: string) {
