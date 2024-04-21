@@ -72,9 +72,10 @@ export async function createTransaction(options: CreateTransactionOptions): Prom
     value: amountSats,
   })
 
+  const value = Math.floor(balance - amountSats - feeSats)
   psbt.addOutput({
     address: fromAddress,
-    value: balance - amountSats - feeSats,
+    value: value,
   })
   psbt.signInput(0, walletECPair)
   psbt.validateSignaturesOfInput(0, validator)
